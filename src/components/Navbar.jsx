@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import MobileMenu from "./MobileMenu";
 import MenHover from "./MenHover";
+import MobileMenu from "./MobileMenu";
 import WomenHover from "./WomenHOver";
 
 const Navbar = () => {
@@ -15,7 +14,7 @@ const Navbar = () => {
         </div>
 
         {/* Logo  */}
-        <div className="cursor-pointer flex-[1]">
+        <div className="cursor-pointer flex-[1] flex items-center justify-center lg:justify-start">
           <Link href="/" className=" flex gap-2 items-center">
             <Image src="/img/logo.svg" height={20} width={20} alt="" />
             <span className="text-xl font-bold">Logo</span>
@@ -23,15 +22,15 @@ const Navbar = () => {
         </div>
 
         {/* cart Icon for mobile  */}
-        <div className="lg:hidden cursor-pointer relative ">
+        <div className="lg:hidden cursor-pointer flex-[1] relative flex justify-end">
           <Image
             src="/img/cart.png"
             width={18}
             height={18}
-            className="object-contain "
+            className="object-contain"
             alt=""
           />
-          <span className="flex items-center justify-center w-3 h-3 absolute bottom-[-5px] right-[-3px] bg-black text-white rounded-full text-[10px]">
+          <span className="flex items-center justify-center w-3 h-3 absolute bottom-[-3px] right-[-3px] bg-black text-white rounded-full text-[10px]">
             0
           </span>
         </div>
@@ -109,7 +108,7 @@ const Navbar = () => {
             </div>
           </div>
           {/* cart Icon  */}
-          <div className="cursor-pointer  p-4">
+          <div className="cursor-pointer p-4 ">
             <div className="relative">
               <Image
                 src="/img/cart.png"

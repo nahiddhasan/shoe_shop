@@ -3,7 +3,7 @@ import React from "react";
 
 const NewItem = () => {
   return (
-    <div className=" w-full my-6 lg:my-12 flex items-center bg-black">
+    <div className=" w-full  flex items-center bg-black">
       {/* main container */}
       <div className=" px-4 lg:px-8 w-[1400px] mx-auto flex flex-col items-center justify-center  ">
         {/* item heading */}

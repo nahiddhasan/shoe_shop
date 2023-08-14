@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 const FeaturedProduct = [
   {
@@ -102,7 +101,9 @@ const Featured = () => {
               </div>
             ))}
           </div>
-          <button className="mt-2 p-3 px-6 bg-yellow-300 hover:bg-yellow-400 transition-all float-right text-xl rounded-full">Shop Now</button>
+          <button className="mt-2 p-3 px-6 bg-yellow-300 hover:bg-yellow-400 transition-all float-right text-xl rounded-full">
+            Shop Now
+          </button>
         </div>
       </div>
     </div>
