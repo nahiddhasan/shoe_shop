@@ -7,7 +7,7 @@ const Footer = () => {
       <div className=" px-4 lg:px-8 w-[1400px] flex flex-col gap-6 mx-auto">
         <h1 className="text-3xl font-bold">Brand</h1>
         {/* items */}
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-4">
           {/* item */}
           <div className="flex flex-col gap-4 flex-[2] p-4">
             <span>
