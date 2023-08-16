@@ -1,9 +1,8 @@
 import Image from "next/image";
-import React from "react";
 
 const MenHover = () => {
   return (
-    <div className="w-screen h-[calc(100vh-5.25rem)] bg-[#f2f2f2] fixed top-12 left-0">
+    <div className="w-[98vw] h-[calc(100vh-5.25rem)] bg-[#f2f2f2] fixed top-12 left-0">
       <div className="flex items-center justify-center h-full ">
         {/* items */}
         <div className="flex justify-center gap-10">

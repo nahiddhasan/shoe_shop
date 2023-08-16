@@ -28,3 +28,12 @@
     grid-area: g;
   }
 }
+
+.modal__bg {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.box__shadow {
+  box-shadow: -29px 0px 48px -19px rgba(0, 0, 0, 0.68);
+  -webkit-box-shadow: -29px 0px 48px -19px rgba(0, 0, 0, 0.68);
+  -moz-box-shadow: -29px 0px 48px -19px rgba(0, 0, 0, 0.68);
+}

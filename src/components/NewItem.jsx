@@ -15,7 +15,7 @@ const NewItem = () => {
           </h1>
         </div>
         {/* image container */}
-        <div className="relative w-[80%] md:w-full h-[60vh] md:h-[75vh] lg:h-screen">
+        <div className="relative w-[95%] md:w-full h-[60vh] md:h-[75vh] lg:h-screen">
           <Image src="/img/new.jpg" alt="" fill className="object-cover" />
         </div>
       </div>

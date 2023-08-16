@@ -18,7 +18,7 @@ export default function Home() {
       <FeaturedBottom/>
       <Accesories/>
       <Showcase/>
-      
+   
     </main>
   )
 }

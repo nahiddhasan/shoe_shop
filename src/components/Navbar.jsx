@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Cart from "./Cart";
 import MenHover from "./MenHover";
 import MobileMenu from "./MobileMenu";
 import WomenHover from "./WomenHOver";
@@ -7,14 +8,13 @@ import WomenHover from "./WomenHOver";
 const Navbar = () => {
   return (
     <div className=" w-full  h-12 sticky top-0 left-0 lg:sticky lg:top-9  nav__bg backdrop-blur-[10px] flex items-center z-10">
-      <div className="px-4 lg:px-8 w-[1400px] mx-auto flex items-center justify-between ">
+      <div className="px-4 lg:px-8 w-[1400px] flex items-center justify-between ">
         {/* Mobile menu */}
-        <div className="lg:hidden flex-[1]">
+        <div className="lg:hidden flex-[1] w-max">
           <MobileMenu />
         </div>
-
         {/* Logo  */}
-        <div className="cursor-pointer flex-[1] flex items-center justify-center lg:justify-start">
+        <div className="w-max cursor-pointer flex-[1] flex items-center justify-center lg:justify-start">
           <Link href="/" className=" flex gap-2 items-center">
             <Image src="/img/logo.svg" height={20} width={20} alt="" />
             <span className="text-xl font-bold">Logo</span>
@@ -22,20 +22,11 @@ const Navbar = () => {
         </div>
 
         {/* cart Icon for mobile  */}
-        <div className="lg:hidden cursor-pointer flex-[1] relative flex justify-end">
-          <Image
-            src="/img/cart.png"
-            width={18}
-            height={18}
-            className="object-contain"
-            alt=""
-          />
-          <span className="flex items-center justify-center w-3 h-3 absolute bottom-[-3px] right-[-3px] bg-black text-white rounded-full text-[10px]">
-            0
-          </span>
+        <div className="lg:hidden w-max cursor-pointer flex-[1] relative flex justify-end">
+          <Cart />
         </div>
         {/* menu item  */}
-        <div className="hidden lg:flex gap-8 items-center justify-center flex-[2]">
+        <div className="hidden lg:flex gap-4 items-center justify-center flex-[2]">
           <div className="group/men ">
             <span className="py-4 cursor-pointer">Men</span>
             <div className="invisible opacity-0 group-hover/men:visible group-hover/men:opacity-100 duration-500 transition-all">
@@ -51,11 +42,11 @@ const Navbar = () => {
           <span className="py-4 cursor-pointer">Accessories</span>{" "}
           <span className="py-4 cursor-pointer">About</span>{" "}
           <Link
-            className="bg-[#e9effc] py-1 px-4 rounded-full text-blue-500 text-[15px] text-center  "
+            className="bg-[#e9effc] py-1 px-4 rounded-full text-blue-500 text-sm text-center  "
             href="/"
           >
             Shoe Finder Quiz
-          </Link>{" "}
+          </Link>
         </div>
         {/* menu options */}
         <div className="hidden lg:flex  items-center flex-[1] justify-end">
@@ -109,18 +100,7 @@ const Navbar = () => {
           </div>
           {/* cart Icon  */}
           <div className="cursor-pointer p-4 ">
-            <div className="relative">
-              <Image
-                src="/img/cart.png"
-                width={18}
-                height={18}
-                className="object-contain relative"
-                alt=""
-              />
-              <span className="flex items-center justify-center w-3 h-3 absolute bottom-[-5px] right-[-3px] bg-black text-white rounded-full text-[10px]">
-                0
-              </span>
-            </div>
+            <Cart />
           </div>
         </div>
       </div>

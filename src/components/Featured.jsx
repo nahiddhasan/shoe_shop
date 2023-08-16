@@ -67,7 +67,7 @@ const Featured = () => {
             {FeaturedProduct.map((item) => (
               <div
                 key={item.id}
-                className=" h-[200px] md:h-[350px] lg:h-[400px] rounded-2xl relative overflow-hidden group/img cursor-pointer"
+                className=" h-[250px] md:h-[350px] lg:h-[400px] rounded-2xl relative overflow-hidden group/img cursor-pointer"
               >
                 {/* Image container */}
                 <div className="relative h-full w-full group-hover/img:hidden">
@@ -82,7 +82,7 @@ const Featured = () => {
                   />
                 </div>
                 {/* info container */}
-                <div className="h-full w-full absolute flex justify-between flex-col top-0 p-4 px-8">
+                <div className="h-full w-full absolute flex justify-between flex-col top-0 p-4">
                   {item.topText ? (
                     <span className=" p-1 px-3 bg-white rounded-full w-max text-xs md:text-sm">
                       {item.topText}
