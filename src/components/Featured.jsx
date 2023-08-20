@@ -65,9 +65,10 @@ const Featured = () => {
           {/* Products Container  */}
           <div className="my-4 grid w-full gap-x-[5px] gap-y-2 grid-cols-[repeat(2,1fr)] md:gap-x-3 md:gap-y-3.5 md:grid-cols-[repeat(3,1fr)]">
             {FeaturedProduct.map((item) => (
-              <div
+              <Link
                 key={item.id}
                 className=" h-[250px] md:h-[350px] lg:h-[400px] rounded-2xl relative overflow-hidden group/img cursor-pointer"
+                href={`/product/${item.id}`}
               >
                 {/* Image container */}
                 <div className="relative h-full w-full group-hover/img:hidden">
@@ -98,7 +99,7 @@ const Featured = () => {
                     </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
           <button className="mt-2 p-3 px-6 bg-yellow-300 hover:bg-yellow-400 transition-all float-right text-xl rounded-full">

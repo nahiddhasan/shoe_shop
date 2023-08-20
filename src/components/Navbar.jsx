@@ -10,7 +10,7 @@ const Navbar = () => {
     <div className=" w-full  h-12 sticky top-0 left-0 lg:sticky lg:top-9  nav__bg backdrop-blur-[10px] flex items-center z-10">
       <div className="px-4 lg:px-8 w-[1400px] flex items-center justify-between ">
         {/* Mobile menu */}
-        <div className="lg:hidden flex-[1] w-max">
+        <div className="lg:hidden flex-[1]">
           <MobileMenu />
         </div>
         {/* Logo  */}

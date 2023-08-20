@@ -1,13 +1,13 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const MobileMenu = () => {
   const [open, setOpen] = useState(false);
   return (
     <div>
-      <div onClick={() => setOpen(!open)}>
+      <div onClick={() => setOpen(!open)} className="w-max">
         <Image
           src="/img/hamberger.png"
           width={20}
