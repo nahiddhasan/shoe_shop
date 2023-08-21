@@ -53,7 +53,7 @@ const Navbar = () => {
           <div className="relative p-4 cursor-pointer group/support">
             <span>Support</span>
             {/* support hover item */}
-            <div className="invisible opacity-0 group-hover/support:visible group-hover/support:opacity-100 duration-500 transition-all flex  w-max gap-2 bg-white ring-1 ring-gray-400 p-4 rounded-md flex-col absolute top-12 right-0">
+            <div className="invisible opacity-0 group-hover/support:visible group-hover/support:opacity-100 sidebar duration-500 transition-all flex  w-max gap-2 bg-white ring-1 ring-gray-400 p-4 rounded-md flex-col absolute top-12 right-0">
               <Link className="hover:underline" href="/">
                 Exchange/Return
               </Link>
