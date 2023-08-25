@@ -1,10 +1,12 @@
 "use client";
 import MobileSlider from "@/components/MobileSlider";
 import ProductFeature from "@/components/ProductFeatures";
+import { addProduct } from "@/redux/cartRedux";
 import Image from "next/image";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 const product = {
-  id: 1,
+  _id: 1,
   name: "Model 000",
   des: "Cushiony Comfort",
   price: 145,
@@ -19,7 +21,28 @@ const product = {
 };
 
 const SingleProduct = () => {
-  const [selected, setSelected] = useState(0);
+  const dispatch = useDispatch();
+  const [selectedcolor, setSelectedcolor] = useState(0);
+  const [color, setColor] = useState("");
+  const [size, setSize] = useState();
+  const handleClick = () => {
+    dispatch(
+      addProduct({
+        id: product._id,
+        color: color,
+        size: size,
+        price: product.price,
+        img: product.images[0],
+        name: product.name,
+        quantity: 1,
+      })
+    );
+  };
+
+  const handleColor = (index, color) => {
+    setColor(color);
+    setSelectedcolor(index);
+  };
   return (
     <div className=" w-full my-2 lg:my-12 flex items-center">
       {/* main container */}
@@ -64,16 +87,18 @@ const SingleProduct = () => {
           <div>
             {/* color */}
             <div className="flex flex-col gap-1">
-              <span>Color:Black</span>
+              <span className="capitalize">
+                Color: {product.colors[selectedcolor]}
+              </span>
               <div className="flex gap-4 mb-2">
                 {product.colors.map((color, index) => (
                   <div
                     key={index}
                     className={`h-6 w-6 rounded-full ring-2 ${
-                      selected === index && " scale-125"
+                      selectedcolor === index && " scale-125"
                     }`}
                     style={{ backgroundColor: color }}
-                    onClick={() => setSelected(index)}
+                    onClick={() => handleColor(index, color)}
                   />
                 ))}
               </div>
@@ -82,18 +107,26 @@ const SingleProduct = () => {
             <div className="flex flex-col gap-2">
               <span>Size</span>
               <select className="p-3 rounded-md" name="Select Size" id="">
-                <option className="p-4" value="" selected>
+                <option className="p-4" value="" selectedColor>
                   Select Size
                 </option>
                 {product.sizes.map((size, index) => (
-                  <option key={index} className="p-4" value="3">
+                  <option
+                    onClick={(e) => setSize(e.target.value)}
+                    key={index}
+                    className="p-4"
+                    value={size}
+                  >
                     {size}
                   </option>
                 ))}
               </select>
             </div>
             {/* add to cart button  */}
-            <button className="w-full my-6 p-2 bg-black text-white rounded-full">
+            <button
+              className="w-full my-6 p-2 bg-black text-white rounded-full"
+              onClick={handleClick}
+            >
               Add to Cart
             </button>
             {/* product description  */}

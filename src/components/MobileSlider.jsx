@@ -37,7 +37,7 @@ const MobileSlider = ({ images }) => {
           <div className={`flex items-center justify-center gap-2`}>
             {images.map((item, index) => (
               <div
-                key={item.id}
+                key={index}
                 className={`h-2 w-2 rounded-[100%]  ${
                   currentSlider === index ? "bg-slate-400" : "bg-slate-800"
                 } `}

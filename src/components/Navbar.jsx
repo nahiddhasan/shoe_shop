@@ -1,17 +1,23 @@
+"use client";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 import Cart from "./Cart";
 import MenHover from "./MenHover";
 import MobileMenu from "./MobileMenu";
 import WomenHover from "./WomenHOver";
-
 const Navbar = () => {
+  const session = useSession();
+  const user = session?.data?.user;
+  const { quantity } = useSelector((state) => state.cart);
+
   return (
     <div className=" w-full  h-12 sticky top-0 left-0 lg:sticky lg:top-9  nav__bg backdrop-blur-[10px] flex items-center z-10">
       <div className="px-4 lg:px-8 w-[1400px] flex items-center justify-between ">
         {/* Mobile menu */}
         <div className="lg:hidden flex-[1]">
-          <MobileMenu />
+          <MobileMenu session={session} signOut={signOut} />
         </div>
         {/* Logo  */}
         <div className="w-max cursor-pointer flex-[1] flex items-center justify-center lg:justify-start">
@@ -23,7 +29,7 @@ const Navbar = () => {
 
         {/* cart Icon for mobile  */}
         <div className="lg:hidden w-max cursor-pointer flex-[1] relative flex justify-end">
-          <Cart />
+          <Cart quantity={quantity} />
         </div>
         {/* menu item  */}
         <div className="hidden lg:flex gap-4 items-center justify-center flex-[2]">
@@ -72,12 +78,12 @@ const Navbar = () => {
             </div>
           </div>
           {/* Profile icon */}
-          <div className="cursor-pointer relative group/profile p-4 ">
+          <div className="cursor-pointer relative group/profile px-2 py-4 ">
             <Image
-              src="/img/profile.png"
-              className="object-contain"
-              width={18}
-              height={18}
+              src={(user && user.image) || "/img/noavatar.jpg"}
+              className="object-cover rounded-full"
+              width={25}
+              height={25}
               alt=""
             />
 
@@ -93,14 +99,20 @@ const Navbar = () => {
               <Link className="hover:underline" href="/">
                 Addresses
               </Link>
-              <Link className="hover:underline" href="/">
-                Login
-              </Link>
+              {session.status === "authenticated" ? (
+                <span className="hover:underline" onClick={() => signOut()}>
+                  Logout
+                </span>
+              ) : (
+                <Link className="hover:underline" href="/login">
+                  Login
+                </Link>
+              )}
             </div>
           </div>
           {/* cart Icon  */}
           <div className="cursor-pointer p-4 ">
-            <Cart />
+            <Cart quantity={quantity} />
           </div>
         </div>
       </div>

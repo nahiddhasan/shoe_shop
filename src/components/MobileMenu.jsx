@@ -3,8 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const MobileMenu = () => {
+const MobileMenu = ({ session, signOut }) => {
   const [open, setOpen] = useState(false);
+
   return (
     <div>
       <div onClick={() => setOpen(!open)} className="w-max">
@@ -65,7 +66,19 @@ const MobileMenu = () => {
           <div className="flex flex-col gap-2">
             <span className="text-sm">Account</span>
             <h2 className="text-2xl">My Orders</h2>
-            <h2 className="text-2xl">Login</h2>
+            {session.status === "authenticated" ? (
+              <h2 className="text-2xl" onClick={() => signOut()}>
+                Logout
+              </h2>
+            ) : (
+              <Link
+                className="text-2xl"
+                href="/login"
+                onClick={() => setOpen(false)}
+              >
+                Login
+              </Link>
+            )}
             <h2 className="text-2xl">Exchange/Return</h2>
             <h2 className="text-2xl">Support</h2>
           </div>

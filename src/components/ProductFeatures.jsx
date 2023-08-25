@@ -50,7 +50,7 @@ const ProductFeature = () => {
                 height={16}
                 width={16}
                 alt=""
-                className={` bg-slate-300 rounded-full ${
+                className={` bg-slate-200 rounded-full ${
                   open === index && " rotate-45"
                 } text-xl transition-all duration-200`}
               />
